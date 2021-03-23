@@ -5,13 +5,11 @@ import MovieIcon from '@material-ui/icons/Movie';
 import TvIcon from '@material-ui/icons/Tv';
 import SearchIcon from '@material-ui/icons/Search';
 
-
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
+import darkTheme from '../../components/Theme'
 
-import blue from '@material-ui/core/colors/blue';
 
-const primary = blue[500];
 
 const useStyles = makeStyles({
     root:{
@@ -21,9 +19,6 @@ const useStyles = makeStyles({
         bottom: 0,
         zIndex: '100',
     },
-    navIcons:{
-        color: "#fff",
-    }
 })
 
 
@@ -48,6 +43,7 @@ function Navbar() {
     
 
     return (
+        <ThemeProvider theme={darkTheme}>
             <BottomNavigation
                 value={value}
                 onChange={(event, newValue) => {
@@ -56,11 +52,12 @@ function Navbar() {
                 showLabels
                 className={classes.root}
                 >
-                <BottomNavigationAction className={classes.navIcons} label="Trending" icon={<WhatshotIcon />} />
-                <BottomNavigationAction className={classes.navIcons} label="Movies" icon={<MovieIcon />} />
-                <BottomNavigationAction className={classes.navIcons} label="TV series" icon={<TvIcon />} />
-                <BottomNavigationAction className={classes.navIcons} label="Search" icon={<SearchIcon />} />
+                <BottomNavigationAction label="Trending" icon={<WhatshotIcon />} />
+                <BottomNavigationAction label="Movies" icon={<MovieIcon />} />
+                <BottomNavigationAction label="TV series" icon={<TvIcon />} />
+                <BottomNavigationAction label="Search" icon={<SearchIcon />} />
             </BottomNavigation>
+        </ThemeProvider>
         )
 }
 

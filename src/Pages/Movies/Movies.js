@@ -44,13 +44,13 @@ function Movies() {
             <Grid 
                 container
                 direction="row"
-                justify="space-between"
+                justify="center"
                 alignItems="center"
                 style={{ marginTop:'50px'}}
             >
                 {
                     content && content.map((c) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} spacing={2} >
+                        <Grid item xs={12} sm={6} md={4} lg={3} spacing={2} key={c.id}>
                             <SingleContent  
                             key={c.id}
                             id={c.id} 
@@ -58,7 +58,7 @@ function Movies() {
                             poster={c.poster_path}
                             vote={c.vote_average}
                             date={c.first_air_date || c.release_date}
-                            type={c.media_type}
+                            type="movie"
                             vote_total={c.vote_count}
                         />
                         </Grid>

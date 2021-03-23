@@ -30,16 +30,15 @@ function Genres({
         setGenres(data.genres);
     }
 
-    console.log(genres);
 
     useEffect(() => {
         fetchGenres();
-
 
         // component did unmount
         return () => {
             setGenres({});
         };
+         // eslint-disable-next-line
     },[])
     return (
         <div style={{margin: '10px',}}>

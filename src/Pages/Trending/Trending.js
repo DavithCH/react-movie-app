@@ -26,10 +26,9 @@ function Trending() {
     return (
         <>
             <Grid 
-                
                 container
                 direction="row"
-                justify="space-between"
+                justify="center"
                 alignItems="center"
                 style={{ marginTop:'50px'}}
             >
@@ -51,7 +50,7 @@ function Trending() {
                     ))
                 }
             </Grid>
-            <CustomPagination setPage={setPage} numOfPages={numOfPages} />
+            {numOfPages > 1 &&  <div style={{marginBottom:'100px', paddingTop: '10px'}}><CustomPagination setPage={setPage} numOfPages={numOfPages}/></div>}
             
         </>
     )

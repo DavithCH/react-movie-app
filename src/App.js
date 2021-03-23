@@ -7,6 +7,7 @@ import Movies from './Pages/Movies/Movies';
 import Series from './Pages/Series/Series';
 import Search from './Pages/Search/Search';
 import Header from './components/Header/Header';
+import ContentDetails from './components/ContentDetails/ContentDetails';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/movies" component={Movies} />
           <Route path="/series" component={Series} />
           <Route path="/search" component={Search} />
+          <Route path="/:type/:id" component={ContentDetails} />
         </Switch>
       </Container>
     </BrowserRouter>
