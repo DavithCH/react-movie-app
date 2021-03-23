@@ -40,6 +40,7 @@ function Movies() {
                 setGenres={setGenres}
                 setPage={setPage}
             />
+            {numOfPages > 1 &&  <div style={{paddingTop:'10px'}}><CustomPagination setPage={setPage} numOfPages={numOfPages}/></div>}
             <Grid 
                 container
                 direction="row"
@@ -65,7 +66,7 @@ function Movies() {
                     ))
                 }
             </Grid>
-            {numOfPages > 1 &&  <CustomPagination setPage={setPage} numOfPages={numOfPages}/>}
+            {numOfPages > 1 &&  <div style={{marginBottom:'100px', paddingTop: '10px'}}><CustomPagination setPage={setPage} numOfPages={numOfPages}/></div>}
     </>
     )
 }

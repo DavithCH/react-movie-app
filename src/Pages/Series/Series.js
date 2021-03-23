@@ -40,6 +40,7 @@ function Series() {
                 setGenres={setGenres}
                 setPage={setPage}
             />
+            {numOfPages > 1 &&  <div style={{paddingTop:'10px'}}><CustomPagination setPage={setPage} numOfPages={numOfPages}/></div>}
             <Grid 
                 container
                 direction="row"
@@ -54,7 +55,7 @@ function Series() {
                             key={c.id}
                             id={c.id} 
                             title={c.title || c.name} 
-                            poster={c.poster_path}
+                            poster={c.poster_path || c.backdrop_path}
                             vote={c.vote_average}
                             date={c.first_air_date || c.release_date}
                             type={c.media_type}
@@ -65,7 +66,7 @@ function Series() {
                     ))
                 }
             </Grid>
-            {numOfPages > 1 &&  <CustomPagination setPage={setPage} numOfPages={numOfPages}/>}
+            {numOfPages > 1 &&  <div style={{marginBottom:'100px', paddingTop: '10px'}}><CustomPagination setPage={setPage} numOfPages={numOfPages}/></div>}
     </>
     )
 }

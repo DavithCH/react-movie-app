@@ -21,7 +21,6 @@ function CustomPagination({setPage, numOfPages = 10}) {
             style={{
                 display:'flex', 
                 width:'100%', 
-                marginBottom:'100px', 
                 justifyContent:'center',
                 marginTop:'10px'
             }}
