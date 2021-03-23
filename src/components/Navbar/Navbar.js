@@ -6,8 +6,12 @@ import TvIcon from '@material-ui/icons/Tv';
 import SearchIcon from '@material-ui/icons/Search';
 
 
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
+
+import blue from '@material-ui/core/colors/blue';
+
+const primary = blue[500];
 
 const useStyles = makeStyles({
     root:{
@@ -22,11 +26,6 @@ const useStyles = makeStyles({
     }
 })
 
-const darkTheme = createMuiTheme({
-    palette:{
-        type: 'dark',
-    },
-})
 
 
 function Navbar() {
@@ -49,7 +48,6 @@ function Navbar() {
     
 
     return (
-        <ThemeProvider theme={darkTheme}>
             <BottomNavigation
                 value={value}
                 onChange={(event, newValue) => {
@@ -63,8 +61,6 @@ function Navbar() {
                 <BottomNavigationAction className={classes.navIcons} label="TV series" icon={<TvIcon />} />
                 <BottomNavigationAction className={classes.navIcons} label="Search" icon={<SearchIcon />} />
             </BottomNavigation>
-        </ThemeProvider>
-        
         )
 }
 

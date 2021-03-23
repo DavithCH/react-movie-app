@@ -7,11 +7,11 @@ import SingleContent from '../../components/SingleContent/SingleContent';
 function Trending() {
 
     const [content, setContent] = useState([]);
-    const [page, setPage] = useState();
-    const [numOfPages, setNumOfPages] = useState([]);
+    const [page, setPage] = useState(1);
+    const [ numOfPages, setNumOfPages ] = useState([]);
 
     const fetchTrending = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+        const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=${page}`);
         
         setContent(data.results);
         setNumOfPages(data.total_pages);
@@ -20,6 +20,7 @@ function Trending() {
 
     useEffect(() => {
         fetchTrending();
+
     },[page])
 
     return (
@@ -51,6 +52,7 @@ function Trending() {
                 }
             </Grid>
             <CustomPagination setPage={setPage} numOfPages={numOfPages} />
+            
         </>
     )
 }

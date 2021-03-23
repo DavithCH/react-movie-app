@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core'
 import SingleContent from '../../components/SingleContent/SingleContent';
 import CustomPagination from '../../components/Pagination/CustomPagination';
 import Genres from '../../components/Genres';
+import useGenre from '../../hooks/useGenre';
 
 
 function Movies() {
@@ -14,9 +15,12 @@ function Movies() {
 
     const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
+
+    const genreforURL = useGenre(selectedGenres);
+
     const fetchMovies = async () => {
         const { data } = await axios.get(`
-        https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`);
+        https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`);
 
         setContent(data.results);
         setNumOfPages(data.total_pages);
@@ -24,7 +28,7 @@ function Movies() {
 
     useEffect(() => {
         fetchMovies();
-    },[page])
+    },[page, genreforURL]);
 
     return (
         <>
@@ -37,7 +41,6 @@ function Movies() {
                 setPage={setPage}
             />
             <Grid 
-                
                 container
                 direction="row"
                 justify="space-between"

@@ -11,14 +11,14 @@ const useStyles = makeStyles({
         textAlign: 'center',
         margin: 'auto',
         justifyContent:'center',
-        color: '#7289DA',
+        color: '#3f51b5',
         fontSize: '30px',
         left: '0',
     },
     logo:{
         fontSize: '70px',
         marginTop: '5px',
-        color: '#7289DA',
+        color: '#3f51b5',
     }
 })
 

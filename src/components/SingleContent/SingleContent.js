@@ -17,7 +17,11 @@ function SingleContent({
                         className={classes.cardHeader}
                         title={title}
                     />
-                    <Typography variant="caption" size="small" style={{marginLeft:'5px'}}>{date}</Typography>
+                    <div className={classes.subInfo}>
+                    <Typography variant="caption" size="small" >{date}</Typography>
+                    <Typography variant="caption" color={ vote > 6 ? "secondary": "primary" }>{vote}</Typography>
+                    </div>
+                    
                     <CardActionArea>
                     <CardMedia 
                         className={classes.media}
@@ -25,11 +29,7 @@ function SingleContent({
                         alt={title}
                     />
                     </CardActionArea>
-                    <div className={classes.cardBottom}>
-                        <Typography variant="overline" color={ vote > 6 ? "secondary": "primary" }>
-                            {vote}
-                        </Typography>
-                    </div>
+                    
                 </Card>
                 
         </div>

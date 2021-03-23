@@ -17,14 +17,10 @@ const useStyles = makeStyles({
         height:'30px',
         textAlign: 'center',
     },
-    cardBottom:{
-        height: '50px',
+    subInfo:{
         display: 'flex',
-        flexDirection: 'rows',
         justifyContent: 'space-between',
-        padding:'0 10px',
-        textTransform: 'uppercase',
-        alignItems:'center',
+        margin:'8px'
     }
 })
 
