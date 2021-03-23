@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     }
 })
 
+const darkTheme = createMuiTheme({
+    palette:{
+        type: 'dark',
+    },
+})
+
 
 function Navbar() {
     const classes = useStyles();
@@ -38,16 +44,12 @@ function Navbar() {
         }else{
             history.push('/search');
         }
-    },[value])
+    },[value, history])
 
-    const darktheme = createMuiTheme({
-        palette:{
-            type: 'dark',
-        },
-    })
+    
 
     return (
-        <ThemeProvider theme={darktheme}>
+        <ThemeProvider theme={darkTheme}>
             <BottomNavigation
                 value={value}
                 onChange={(event, newValue) => {
